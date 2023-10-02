@@ -8,6 +8,7 @@
     """,
     "depends": [],
     "data": [], 
+    "sequence": -1,
     "demo_xml": [],
     "installable": True,
     "application": True,
