@@ -8,8 +8,9 @@
     """,
     "depends": [],
     "data": [
+        'security/ir.model.access.csv',
         'views/patient.xml',
-         'views/menu.xml',
+        'views/menu.xml',
     ], 
     "sequence": -1,
     "demo_xml": [],
