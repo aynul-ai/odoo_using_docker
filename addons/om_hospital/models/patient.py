@@ -7,8 +7,8 @@ class HospitalPatient(models.Model):
     _description = 'Patient Record'
     
 
-    name = fields.Char(string='Name', required=True)
-    age = fields.Integer(string='Age')
+    name = fields.Char(string='Name', required=True, tracking=True)
+    age = fields.Integer(string='Age', tracking=True)
     gender = fields.Selection([
         ("male", "Male"), ("female", "Female")])
     ref = fields.Char(string='Reference', required=False)
