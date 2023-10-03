@@ -45,6 +45,15 @@
                 <field name="age" string="Patient Age" />
                 <field name="gender" />
                 <field name="ref"/>
+                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>
+                <!-- <separator/>  create and (&) logic between the two filter otherwise or -->
+                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>
+                <separator/>
+                <filter name="filter_kids" string="Kids" domain="[('age', '&lt;=', 5)]"/>  
+                <group expand="1" string="Group By Gender">
+                    <filter string="Gender" name="group_by_gender" context="{'group_by': 'gender'}"/>
+                    
+                </group>
                 
             </search>
         </field>
