@@ -9,5 +9,6 @@
         id="menu_patient"
         name="Patient"
         parent="menu_hospital_root"
+        action="action_hospital_patinent"
         sequence="0"/>
 </odoo>
