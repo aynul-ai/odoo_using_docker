@@ -6,7 +6,9 @@
     "description": """
     Hospital Management
     """,
-    "depends": [],
+    "depends": [
+        'mail',
+    ],
     "data": [
         'security/ir.model.access.csv',
         'views/patient.xml',
