@@ -7,7 +7,9 @@
     Hospital Management
     """,
     "depends": [],
-    "data": [], 
+    "data": [
+         'views/menu.xml',
+    ], 
     "sequence": -1,
     "demo_xml": [],
     "installable": True,
