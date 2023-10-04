@@ -16,6 +16,7 @@ class HospitalAppointment(models.Model):
     booking_date = fields.Date(
         string='Booking Date', required=True, default=fields.Date.today)
     ref = fields.Char(string='Reference', required=False)
+    
 
     @api.onchange('patient_id')
     def onchange_patient_id(self):

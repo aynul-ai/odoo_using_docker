@@ -18,6 +18,15 @@
                             <field name="ref" />
                         </group>
                     </group>
+                    <notebook>
+                        <page name="Prescription">
+
+                        </page>
+                        <page name="Pharmacy">
+
+                        </page>
+                    </notebook>
+
                 </sheet>
             </form>
         </field>
