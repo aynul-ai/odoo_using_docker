@@ -7,8 +7,12 @@
             <form string="Hospital Appointment">
                 <sheet>
                     <group>
-                        <group >
+                        <group>
                             <field name="patient_id" />
+                            <field name="patient_gender" />
+
+                        </group>
+                        <group>
                             <field name="appointment_time" />
                             <field name="booking_date" />
                         </group>
@@ -37,7 +41,7 @@
             <p class="o_view_nocontent_smiling_face">
                 Click to Create New Appointment
             </p>
-            
+
         </field>
     </record>
 
