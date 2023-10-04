@@ -15,6 +15,7 @@
                         <group>
                             <field name="appointment_time" />
                             <field name="booking_date" />
+                            <field name="ref" />
                         </group>
                     </group>
                 </sheet>
