@@ -22,4 +22,4 @@ class HospitalPatient(models.Model):
             if rec.date_of_birth:
                 rec.age = fields.Date.today().year - rec.date_of_birth.year
             else:
-                rec.age = 0
+                rec.age = 0 # else is mendatory from odoo 14
