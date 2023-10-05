@@ -56,7 +56,7 @@
         <field name="arch" type="xml">
             <tree string="Hospital Appointment" decoration-success="state == 'done'"
                 decoration-info="state in ('draft', 'in_consultation')"
-                decoration-danger="state == 'cancel'" sample="1">
+                decoration-danger="state == 'cancel'" sample="1" multi_edit="1">
                 <field name="patient_id" />
                 <field name="patient_gender" />
                 <field name="appointment_time" optional="hide" />
