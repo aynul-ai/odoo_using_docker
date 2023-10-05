@@ -5,6 +5,9 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form string="Hospital Appointment">
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}" statusbar_visible="done,confirm,draft"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
