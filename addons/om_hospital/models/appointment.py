@@ -43,3 +43,18 @@ class HospitalAppointment(models.Model):
                 'type': 'rainbow_man',
             }
         }
+
+
+
+    def action_done(self):
+        self.state = 'done'
+    
+    def action_cancel(self):
+        self.state = 'cancel'
+    
+    def action_draft(self):
+        self.state = 'draft'
+
+    def action_in_consultation(self):
+        self.state = 'in_consultation'
+

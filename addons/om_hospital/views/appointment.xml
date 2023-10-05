@@ -6,8 +6,14 @@
         <field name="arch" type="xml">
             <form string="Hospital Appointment">
                 <header>
+                    <button string="Reset to Draft" name="action_draft" type="object"
+                        class="oe_highlight" states="in_consultation,cancel" />
+                    <button string="Done" name="action_done" type="object" class="oe_highlight"
+                        states="in_consultation" />
+                    <button string="In Consultation" name="action_in_consultation" type="object"
+                        class="oe_highlight" states="draft" />
+                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" states="draft,in_consultation" />
                     <field name="state" widget="statusbar"
-                        options="{'clickable': '1', 'fold_field': 'fold'}"
                         statusbar_visible="done,in_consultation,draft" />
                 </header>
                 <sheet>
@@ -21,13 +27,13 @@
                         <group>
                             <field name="patient_id" />
                             <field name="patient_gender" />
-                            <field name="ref" default_focus="1"/>
+                            <field name="ref" default_focus="1" />
                             <field name="doctor_id" widget="many2one_avatar_user" />
 
                         </group>
                         <group>
                             <field name="appointment_time" />
-                            <field name="booking_date" help="help also work from view"  />
+                            <field name="booking_date" help="help also work from view" />
                             <button name="object_test" string="object Button" type="object"
                                 class="oe_highlight" confirm="Are you sure?" />
                             <button name="%(om_hospital.action_hospital_patinent)d"
