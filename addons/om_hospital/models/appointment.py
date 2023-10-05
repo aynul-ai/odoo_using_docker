@@ -33,4 +33,11 @@ class HospitalAppointment(models.Model):
         self.ref = self.patient_id.ref
 
     def object_test(self):
-        pass
+        # rainbow effect
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': "Click Successfull",
+                'type': 'rainbow_man',
+            }
+        }
