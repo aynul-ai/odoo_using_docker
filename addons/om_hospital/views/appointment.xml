@@ -21,13 +21,13 @@
                         <group>
                             <field name="patient_id" />
                             <field name="patient_gender" />
-                            <field name="ref" />
+                            <field name="ref" default_focus="1"/>
                             <field name="doctor_id" widget="many2one_avatar_user" />
 
                         </group>
                         <group>
                             <field name="appointment_time" />
-                            <field name="booking_date" help="help also work from view" />
+                            <field name="booking_date" help="help also work from view"  />
                             <button name="object_test" string="object Button" type="object"
                                 class="oe_highlight" confirm="Are you sure?" />
                             <button name="%(om_hospital.action_hospital_patinent)d"
@@ -38,7 +38,8 @@
                     </group>
                     <notebook>
                         <page name="Prescription">
-                            <field name="prescription" placeholder="Enter your prescription" options="{'collaborative': true, 'resizable': true}" />
+                            <field name="prescription" placeholder="Enter your prescription"
+                                options="{'collaborative': true, 'resizable': true}" />
                         </page>
                         <page name="Pharmacy">
 
@@ -60,7 +61,7 @@
                 <field name="patient_gender" />
                 <field name="appointment_time" optional="hide" />
                 <field name="booking_date" optional="show" />
-                <field name="doctor_id" widget="many2one_avatar"/>
+                <field name="doctor_id" widget="many2one_avatar" />
                 <field name="doctor_id" widget="many2one_avatar_user" />
                 <field name="priority" />
                 <field name="activity_ids" widget="list_activity" />
