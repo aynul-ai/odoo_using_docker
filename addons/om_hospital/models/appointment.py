@@ -22,10 +22,10 @@ class HospitalAppointment(models.Model):
     
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('confirm', 'Confirm'),
+        ('in_consultation', 'In Consultation'),
         ('done', 'Done'),
         ('cancel', 'Cancelled'),
-    ], string='Status', readonly=True, default='draft', tracking=True)
+    ], string='Status', default='draft', tracking=True)
     
 
     @api.onchange('patient_id')
