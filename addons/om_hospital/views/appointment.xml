@@ -22,6 +22,7 @@
                             <field name="patient_id" />
                             <field name="patient_gender" />
                             <field name="ref" />
+                            <field name="doctor_id" widget="many2one_avatar_user" />
 
                         </group>
                         <group>
@@ -59,6 +60,8 @@
                 <field name="patient_gender" />
                 <field name="appointment_time" optional="hide" />
                 <field name="booking_date" optional="show" />
+                <field name="doctor_id" widget="many2one_avatar"/>
+                <field name="doctor_id" widget="many2one_avatar_user" />
                 <field name="priority" />
                 <field name="activity_ids" widget="list_activity" />
                 <field name="state" widget="badge" decoration-success="state == 'done'"

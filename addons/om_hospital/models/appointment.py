@@ -15,18 +15,20 @@ class HospitalAppointment(models.Model):
         string='Appointment Time', required=True, default=fields.Datetime.now)
     booking_date = fields.Date(
         string='Booking Date', required=True, default=fields.Date.today)
-    ref = fields.Char(string='Reference', required=False, help="Reference of the patient")
+    ref = fields.Char(string='Reference', required=False,
+                      help="Reference of the patient")
     prescription = fields.Html(string='Prescription')
     priority = fields.Selection(
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High'), ('3', 'Very High')], string='Priority')
-    
+    doctor_id = fields.Many2one(
+        comodel_name='res.users', string='Doctor')
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('in_consultation', 'In Consultation'),
         ('done', 'Done'),
         ('cancel', 'Cancelled'),
     ], string='Status', default='draft', tracking=True)
-    
 
     @api.onchange('patient_id')
     def onchange_patient_id(self):
