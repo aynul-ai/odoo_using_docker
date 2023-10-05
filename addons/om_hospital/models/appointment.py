@@ -15,7 +15,7 @@ class HospitalAppointment(models.Model):
         string='Appointment Time', required=True, default=fields.Datetime.now)
     booking_date = fields.Date(
         string='Booking Date', required=True, default=fields.Date.today)
-    ref = fields.Char(string='Reference', required=False)
+    ref = fields.Char(string='Reference', required=False, help="Reference of the patient")
     prescription = fields.Html(string='Prescription')
     priority = fields.Selection(
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High'), ('3', 'Very High')], string='Priority')
