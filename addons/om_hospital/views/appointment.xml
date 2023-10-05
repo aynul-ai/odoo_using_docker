@@ -19,12 +19,14 @@
                         <group>
                             <field name="patient_id" />
                             <field name="patient_gender" />
+                            <field name="ref" />
 
                         </group>
                         <group>
                             <field name="appointment_time" />
                             <field name="booking_date" />
-                            <field name="ref" />
+                            <button name="object_test" string="object Button" type="object" class="oe_highlight"/>
+                            <button name="%(om_hospital.action_hospital_patinent)d" string="Action Button" type="action" class="oe_highlight"/>
                         </group>
                     </group>
                     <notebook>
