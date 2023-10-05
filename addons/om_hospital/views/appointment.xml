@@ -25,13 +25,13 @@
                         <group>
                             <field name="appointment_time" />
                             <field name="booking_date" />
-                            <button name="object_test" string="object Button" type="object" class="oe_highlight"/>
-                            <button name="%(om_hospital.action_hospital_patinent)d" string="Action Button" type="action" class="oe_highlight"/>
+                            <button name="object_test" string="object Button" type="object" class="oe_highlight" confirm="Are you sure?"/>
+                            <button name="%(om_hospital.action_hospital_patinent)d" string="Action Button" type="action" class="oe_highlight" confirm="Are you sure?"/>
                         </group>
                     </group>
                     <notebook>
                         <page name="Prescription">
-                              <field name="prescription" placeholder="Enter your prescription"/>  
+                            <field name="prescription" placeholder="Enter your prescription"/>
                         </page>
                         <page name="Pharmacy">
 
