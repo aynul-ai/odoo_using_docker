@@ -30,6 +30,9 @@ class HospitalAppointment(models.Model):
         ('cancel', 'Cancelled'),
     ], string='Status', default='draft', tracking=True)
 
+    pharmacy_line_ids = fields.One2many(
+        'appointment.pharmacy.lines', 'appointment_id', string='Pharmacy Lines')
+
     @api.onchange('patient_id')
     def onchange_patient_id(self):
         self.ref = self.patient_id.ref
@@ -44,17 +47,26 @@ class HospitalAppointment(models.Model):
             }
         }
 
-
-
     def action_done(self):
         self.state = 'done'
-    
+
     def action_cancel(self):
         self.state = 'cancel'
-    
+
     def action_draft(self):
         self.state = 'draft'
 
     def action_in_consultation(self):
         self.state = 'in_consultation'
 
+
+class AppointmentPharmacyLines(models.Model):
+    _name = 'appointment.pharmacy.lines'
+    _description = 'Appointment Pharmacy Lines'
+
+    appointment_id = fields.Many2one(
+        comodel_name='hospital.appointment', string='Appointment')
+    product_id = fields.Many2one(
+        comodel_name='product.product', string='Product', required=True)
+    product_qty = fields.Integer(string='Quantity', default=1)
+    price_unit = fields.Float(string='Unit Price', related='product_id.list_price')

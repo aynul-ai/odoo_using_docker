@@ -9,10 +9,11 @@
                     <button string="Reset to Draft" name="action_draft" type="object"
                         class="oe_highlight" states="in_consultation,cancel" />
                     <button string="Done" name="action_done" type="object" class="oe_highlight"
-                        states="in_consultation" data-hotkey="v"/>
+                        states="in_consultation" data-hotkey="v" />
                     <button string="In Consultation" name="action_in_consultation" type="object"
                         class="oe_highlight" states="draft" />
-                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" states="draft,in_consultation" data-hotkey="k" />
+                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight"
+                        states="draft,in_consultation" data-hotkey="k" />
                     <field name="state" widget="statusbar"
                         statusbar_visible="done,in_consultation,draft" />
                 </header>
@@ -47,7 +48,16 @@
                             <field name="prescription" placeholder="Enter your prescription"
                                 options="{'collaborative': true, 'resizable': true}" />
                         </page>
-                        <page name="Pharmacy">
+                        <page name="Pharmacy" default_focus="1">
+                            <field name="pharmacy_line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id" />
+                                    <field name="product_qty" />
+                                    <field name="price_unit" />
+                                </tree>
+
+
+                            </field>
 
                         </page>
                     </notebook>
