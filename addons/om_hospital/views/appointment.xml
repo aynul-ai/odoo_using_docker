@@ -9,10 +9,10 @@
                     <button string="Reset to Draft" name="action_draft" type="object"
                         class="oe_highlight" states="in_consultation,cancel" />
                     <button string="Done" name="action_done" type="object" class="oe_highlight"
-                        states="in_consultation" />
+                        states="in_consultation" data-hotkey="v"/>
                     <button string="In Consultation" name="action_in_consultation" type="object"
                         class="oe_highlight" states="draft" />
-                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" states="draft,in_consultation" />
+                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" states="draft,in_consultation" data-hotkey="k" />
                     <field name="state" widget="statusbar"
                         statusbar_visible="done,in_consultation,draft" />
                 </header>
