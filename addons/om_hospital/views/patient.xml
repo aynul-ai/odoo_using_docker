@@ -6,26 +6,29 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patinet Form">
+
                 <sheet>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image" widget="image" class="oe_avatar" />
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}" />
                     <group>
                         <group>
                             <field name="name" />
-                            <field name="date_of_birth"/>
-                            <field name="ref"/>
+                            <field name="date_of_birth" />
+                            <field name="ref" />
                         </group>
                         <group>
                             <field name="gender" />
                             <field name="age" />
-                            <field name="active" invisible="1"/>
+                            <field name="active" invisible="1" />
                         </group>
                     </group>
-                    
+
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
             </form>
         </field>
@@ -40,7 +43,7 @@
                 <field name="gender" />
                 <field name="age" />
                 <field name="ref" />
-                
+
             </tree>
         </field>
     </record>
@@ -53,20 +56,21 @@
                 <field name="name" filter_domain="[('name','ilike',self), ('ref', 'ilike', self)]" />
                 <!-- <field name="age" string="Patient Age" /> -->
                 <field name="gender" />
-                <field name="ref"/>
-                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>
+                <field name="ref" />
+                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]" />
                 <!-- <separator/>  create and (&) logic between the two filter otherwise or -->
-                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>
-                <separator/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]" />
+                <separator />
                 <!-- <filter name="filter_kids" string="Kids" domain="[('age', '&lt;=', 5)]"/>   -->
                 <group expand="1" string="Group By Gender">
-                    <filter string="Gender" name="group_by_gender" context="{'group_by': 'gender'}"/>
-                    
+                    <filter string="Gender" name="group_by_gender" context="{'group_by': 'gender'}" />
+
                 </group>
                 <searchpanel>
-                    <field name="gender" string="Gender" enable_counters="1" icon="fa-users" select="multi"/>
-                </searchpanel>                
-                
+                    <field name="gender" string="Gender" enable_counters="1" icon="fa-users"
+                        select="multi" />
+                </searchpanel>
+
             </search>
         </field>
     </record>
@@ -77,7 +81,8 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <!-- <field name="domain">[('gender','=', 'female')]</field> -->
-        <field name="context">{'default_gender': 'female', 'default_age': 10, 'search_default_filter_male': 1, 'search_default_group_by_gender': 1}</field>
+        <field name="context">{'default_gender': 'female', 'default_age': 10,
+            'search_default_filter_male': 1, 'search_default_group_by_gender': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Click to Create New Patient

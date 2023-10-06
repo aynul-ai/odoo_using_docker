@@ -14,6 +14,7 @@ class HospitalPatient(models.Model):
         ("male", "Male"), ("female", "Female")])
     ref = fields.Char(string='Reference', required=False)
     active = fields.Boolean(string='Active', default=True)
+    image = fields.Binary(string='Image')
 
 
     @api.depends('date_of_birth')
