@@ -22,6 +22,8 @@ class HospitalAppointment(models.Model):
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High'), ('3', 'Very High')], string='Priority')
     doctor_id = fields.Many2one(
         comodel_name='res.users', string='Doctor')
+    
+    hide_sales_price = fields.Boolean(string='Hide Sales Price')
 
     state = fields.Selection([
         ('draft', 'Draft'),
