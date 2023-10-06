@@ -13,6 +13,7 @@
         'security/ir.model.access.csv',
         'views/patient.xml',
         'views/appointment.xml',
+        'views/patient_tag_view.xml',
         'views/menu.xml',
     ],
     "sequence": -1,
