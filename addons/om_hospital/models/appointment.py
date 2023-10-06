@@ -25,6 +25,7 @@ class HospitalAppointment(models.Model):
     
     hide_sales_price = fields.Boolean(string='Hide Sales Price')
     color = fields.Integer(string='Color')
+    color_2 = fields.Char(string='Color 2')
 
     state = fields.Selection([
         ('draft', 'Draft'),

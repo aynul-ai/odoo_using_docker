@@ -32,6 +32,8 @@
                             <field name="doctor_id" widget="many2one_avatar_user"  groups="base.group_no_one" />
                             <field name="hide_sales_price" widget="boolean_toggle"/>
                             <field name="color" widget="color_picker"/>
+                            <field name="color_2" widget="color"/>
+
 
                         </group>
                         <group>
