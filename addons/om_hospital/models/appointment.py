@@ -24,6 +24,7 @@ class HospitalAppointment(models.Model):
         comodel_name='res.users', string='Doctor')
     
     hide_sales_price = fields.Boolean(string='Hide Sales Price')
+    color = fields.Integer(string='Color')
 
     state = fields.Selection([
         ('draft', 'Draft'),
