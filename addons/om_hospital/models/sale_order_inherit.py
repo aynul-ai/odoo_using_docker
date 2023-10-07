@@ -11,3 +11,9 @@ class SaleOrderInherit(models.Model):
     def test_function(self):
         print("Hello World")
         return True
+
+    def action_confirm(self):
+        res = super(SaleOrderInherit, self).action_confirm()
+        print("Success.......................................................................")
+        self.confirm_user_id = self.env.user.id
+        return res
