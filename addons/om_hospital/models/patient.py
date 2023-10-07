@@ -12,7 +12,7 @@ class HospitalPatient(models.Model):
                          help="Computed field(non stored) cannot be used in search view")
     gender = fields.Selection([
         ("male", "Male"), ("female", "Female")])
-    ref = fields.Char(string='Reference', required=False)
+    ref = fields.Char(string='Reference', readonly=True)
     active = fields.Boolean(string='Active', default=True)
     image = fields.Binary(string='Image')
     tag_ids = fields.Many2many('patient.tag', string='Tags')
@@ -27,7 +27,7 @@ class HospitalPatient(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals['ref'] is False:
-            vals['ref'] = "testing124"
+        vals['ref'] = self.env['ir.sequence'].next_by_code(
+            'hospital.patient.sequence') or 'New'
         res = super(HospitalPatient, self).create(vals)
         return res
