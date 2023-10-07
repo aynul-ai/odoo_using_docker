@@ -15,6 +15,7 @@ class HospitalPatient(models.Model):
     ref = fields.Char(string='Reference', required=False)
     active = fields.Boolean(string='Active', default=True)
     image = fields.Binary(string='Image')
+    tag_ids = fields.Many2many('patient.tag', string='Tags')
 
 
     @api.depends('date_of_birth')
