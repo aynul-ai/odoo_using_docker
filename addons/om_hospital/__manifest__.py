@@ -7,7 +7,7 @@
     Hospital Management
     """,
     "depends": [
-        'mail', 'product',
+        'mail', 'product', 'sale',
     ],
     "data": [
         'security/ir.model.access.csv',
