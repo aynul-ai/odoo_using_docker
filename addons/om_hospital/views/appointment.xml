@@ -29,10 +29,9 @@
                             <field name="patient_id" />
                             <field name="patient_gender" />
                             <field name="ref" default_focus="1" />
-                            <field name="doctor_id" widget="many2one_avatar_user"  groups="base.group_no_one" />
-                            <field name="hide_sales_price" widget="boolean_toggle"/>
-                            <field name="color" widget="color_picker"/>
-                            <field name="color_2" widget="color"/>
+                            <field name="doctor_id" widget="many2one_avatar_user"
+                                groups="base.group_no_one" />
+                            <field name="hide_sales_price" widget="boolean_toggle" />
 
 
                         </group>
@@ -40,11 +39,13 @@
                             <field name="appointment_time" />
                             <field name="booking_date" help="help also work from view" />
                             <button name="object_test" string="object Button" type="object"
-                                class="oe_highlight" confirm="Are you sure?" groups="base.group_no_one" />
+                                class="oe_highlight" confirm="Are you sure?"
+                                groups="base.group_no_one" />
                             <button name="%(om_hospital.action_hospital_patinent)d"
                                 string="Action Button" type="action" class="oe_highlight"
                                 confirm="Are you sure?"
-                                help="On clicking this you will be redirect to patient records" groups="base.group_no_one" />
+                                help="On clicking this you will be redirect to patient records"
+                                groups="base.group_no_one" />
                         </group>
                     </group>
                     <notebook>
@@ -58,7 +59,8 @@
                                     <field name="product_id" />
                                     <field name="product_qty" />
                                     <!-- column_invisible also works with form, button -->
-                                    <field name="price_unit" attrs="{'column_invisible': [('parent.hide_sales_price', '=', True)]}" />
+                                    <field name="price_unit"
+                                        attrs="{'column_invisible': [('parent.hide_sales_price', '=', True)]}" />
                                 </tree>
 
 

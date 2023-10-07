@@ -22,10 +22,8 @@ class HospitalAppointment(models.Model):
         [('0', 'Low'), ('1', 'Normal'), ('2', 'High'), ('3', 'Very High')], string='Priority')
     doctor_id = fields.Many2one(
         comodel_name='res.users', string='Doctor')
-    
+
     hide_sales_price = fields.Boolean(string='Hide Sales Price')
-    color = fields.Integer(string='Color')
-    color_2 = fields.Char(string='Color 2')
 
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -73,4 +71,5 @@ class AppointmentPharmacyLines(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.product', string='Product', required=True)
     product_qty = fields.Integer(string='Quantity', default=1)
-    price_unit = fields.Float(string='Unit Price', related='product_id.list_price')
+    price_unit = fields.Float(
+        string='Unit Price', related='product_id.list_price')
