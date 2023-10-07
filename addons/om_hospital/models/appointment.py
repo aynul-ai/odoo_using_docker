@@ -49,6 +49,22 @@ class HospitalAppointment(models.Model):
             }
         }
 
+    def cancel_appointment_action(self):
+        # ONE WAY
+
+        # return {
+        #     'name': _('Cancel Appointment'),
+        #     'view_mode': 'form',
+        #     'res_model': 'cancel.appointment.wizard',
+        #     'target': 'new',
+        #     'context': {'default_appointment_id': self.id}
+        # }
+
+        # SECOND WAY
+
+        action = self.env.ref("om_hospital.cancel_appointment_wizard_action").read()[0]
+        return action
+
     def action_done(self):
         self.state = 'done'
 
