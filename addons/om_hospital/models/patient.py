@@ -38,3 +38,9 @@ class HospitalPatient(models.Model):
                 'hospital.patient.sequence') or 'New'
         res = super(HospitalPatient, self).write(vals)
         return res
+
+    def name_get(self):
+        res = []
+        for rec in self:
+            res.append((rec.id, '%s - %s' % (rec.ref, rec.name)))
+        return res
