@@ -10,6 +10,7 @@
                     <group>
                         <field name="appointment_id" />
                         <field name="cancel_reason" />
+                        <field name="cancellation_date"/>
                     </group>
                 </sheet>
                 <footer>
