@@ -12,7 +12,7 @@ class HospitalPatient(models.Model):
                          help="Computed field(non stored) cannot be used in search view")
     gender = fields.Selection([
         ("male", "Male"), ("female", "Female")])
-    ref = fields.Char(string='Reference', readonly=True)
+    ref = fields.Char(string='Reference')
     active = fields.Boolean(string='Active', default=True)
     image = fields.Binary(string='Image')
     tag_ids = fields.Many2many('patient.tag', string='Tags')
@@ -30,4 +30,11 @@ class HospitalPatient(models.Model):
         vals['ref'] = self.env['ir.sequence'].next_by_code(
             'hospital.patient.sequence') or 'New'
         res = super(HospitalPatient, self).create(vals)
+        return res
+
+    def write(self, vals):
+        if not self.ref:
+            vals['ref'] = self.env['ir.sequence'].next_by_code(
+                'hospital.patient.sequence') or 'New'
+        res = super(HospitalPatient, self).write(vals)
         return res
