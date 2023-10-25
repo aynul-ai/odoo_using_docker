@@ -19,6 +19,7 @@
         'views/patient.xml',
         'views/appointment.xml',
         'views/patient_tag_view.xml',
+        'views/odoo_playground_view.xml',
         'views/menu.xml',
     ],
     "sequence": -1,

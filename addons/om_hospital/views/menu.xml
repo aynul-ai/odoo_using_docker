@@ -19,15 +19,15 @@
         sequence="1">
 
         <menuitem
-        id="menu_appointment"
-        name="Appointment"
-        action="action_hospital_appointment"
-        sequence="1"/>
+            id="menu_appointment"
+            name="Appointment"
+            action="action_hospital_appointment"
+            sequence="1" />
         <menuitem
-        id="menu_appointment_cancel"
-        name="Cancel Appointment"
-        action="cancel_appointment_wizard_action"
-        sequence="3"/>
+            id="menu_appointment_cancel"
+            name="Cancel Appointment"
+            action="cancel_appointment_wizard_action"
+            sequence="3" />
 
 
     </menuitem>
@@ -44,6 +44,8 @@
             name="Patient Tags"
             action="action_patient_tag"
             sequence="2" />
+
+        <menuitem id="odoo_playground_menu" name="Odoo Playground" action="odoo_playground_action" />
 
     </menuitem>
 
