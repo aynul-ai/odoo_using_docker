@@ -16,7 +16,7 @@
                         states="draft,in_consultation" data-hotkey="k" />
                     <field name="state" widget="statusbar"
                         statusbar_visible="done,in_consultation,draft" />
-                    <button string="Cancel Appointment(O)" name="cancel_appointment_action" type="object" class="oe_highlight"/>
+                    <button string="Cancel Appointment(O)" name="cancel_appointment_action" type="object" class="oe_highlight" context="{'default_appointment_id': active_id}"/>
                     <button string="Cancel Appointment(A)" name="%(cancel_appointment_wizard_action)d" type="action" class="oe_highlight"/>
                 </header>
                 <sheet>
