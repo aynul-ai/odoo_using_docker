@@ -1,5 +1,6 @@
 from odoo import _, api, fields, models
 import datetime
+from odoo.exceptions import ValidationError
 
 class CancelAppointmentWizard(models.TransientModel):
     _name = 'cancel.appointment.wizard'
@@ -19,6 +20,9 @@ class CancelAppointmentWizard(models.TransientModel):
     cancellation_date = fields.Date(string='Date', required=True)
 
     def action_cancel_appointment(self):
+        if self.appointment_id.booking_date <= fields.date.today():
+            raise ValidationError(_("Cancellation date should be greater than booking date"))
+
         self.appointment_id.write({'state': 'cancel'})
         print("Appointment Cancelled")
         return True
