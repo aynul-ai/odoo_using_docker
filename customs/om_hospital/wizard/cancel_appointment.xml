@@ -8,7 +8,7 @@
             <form string="Cancel Appointment Wizard">
                 <sheet>
                     <group>
-                        <field name="appointment_id" />
+                        <field name="appointment_id" invisible="context.get('appointment_hide')"/>
                         <field name="cancel_reason" />
                         <field name="cancellation_date"/>
                     </group>
