@@ -22,6 +22,10 @@
                             <field name="gender" />
                             <field name="age" />
                             <field name="active" invisible="1" />
+                            <field name="parent" attrs="{'invisible': [('age', '&gt;', 18)]}"/>
+                            <field name="marital_status" attrs="{'invisible': [('age', '&lt;', 18)]}"/>
+                            <field name="partner_name"
+                                   attrs="{'invisible': ['|' ,('marital_status', '!=', 'married'), ('age', '&lt;', 18)]}"/>
                             <field name="appointment_count" attrs="{'invisible': [('appointment_count', '&lt;=', 0)]}"/>
                         </group>
                     </group>
