@@ -40,7 +40,7 @@
         <field name="name">hospital.patient.view.tree</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-            <tree string="Hospital Patient" sample="1">
+            <tree string="Hospital Patient" sample="1" export_xlsx="0">
                 <field name="name" />
                 <field name="gender" />
                 <field name="age" />
