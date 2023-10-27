@@ -25,6 +25,7 @@
                         <group>
                             <field name="name" />
                             <field name="active" />
+                            <field name="sequence" />
                         </group>
                         <group>
                             <field name="color" widget="color_picker" />
