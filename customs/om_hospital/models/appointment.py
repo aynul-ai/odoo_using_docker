@@ -9,7 +9,7 @@ class HospitalAppointment(models.Model):
     _rec_name = "patient_id"
 
     patient_id = fields.Many2one(
-        comodel_name='hospital.patient', string='Patient', required=True)
+        comodel_name='hospital.patient', string='Patient', required=True, ondelete='cascade')
     patient_gender = fields.Selection(related='patient_id.gender', readonly=False,
                                       help="non readonly can effect parent model")  # non readonly can effect parent model
     appointment_time = fields.Datetime(
