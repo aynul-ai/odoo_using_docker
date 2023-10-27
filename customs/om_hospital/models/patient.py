@@ -1,5 +1,5 @@
 from odoo import models, fields, api, _
-
+from odoo.exceptions import ValidationError
 
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
@@ -16,6 +16,12 @@ class HospitalPatient(models.Model):
     active = fields.Boolean(string='Active', default=True)
     image = fields.Binary(string='Image')
     tag_ids = fields.Many2many('patient.tag', string='Tags')
+
+    @api.constrains('date_of_birth')
+    def check_date_of_birth(self):
+        for rec in self:
+           if rec.date_of_birth > fields.date.today():
+               raise ValidationError("Birthday is not acceptable")
 
     @api.depends('date_of_birth')
     def _compute_age(self):
