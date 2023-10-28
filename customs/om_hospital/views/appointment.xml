@@ -103,6 +103,10 @@
                       states="in_consultation" /> <!-- attrs also work  -->
                 <button icon="fa-close" name="action_cancel" type="object" class="btn-outline-info"
                         states="draft,in_consultation" />
+                <groupby name="patient_id">
+                    <button name="action_test" type="object" string="Click me" class="oe_highlight"/>
+                    <button name="edit" type="edit" icon="fa-edit" title="Edit" string="Edit"/>
+                </groupby>
             </tree>
         </field>
     </record>

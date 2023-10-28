@@ -67,3 +67,6 @@ class HospitalPatient(models.Model):
         for rec in self:
             if rec.appointment_ids:
                 raise ValidationError (_("You cannot delete a patient with appointment"))
+
+    def action_test(self):
+        print("hello world")
