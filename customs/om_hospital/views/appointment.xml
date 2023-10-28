@@ -99,6 +99,10 @@
                 <field name="state" widget="badge" decoration-success="state == 'done'"
                     decoration-info="state in ('draft', 'in_consultation')"
                     decoration-danger="state == 'cancel'" />
+                <button icon="fa-check" name="action_done" type="object" class="btn-outline-success"
+                      states="in_consultation" /> <!-- attrs also work  -->
+                <button icon="fa-close" name="action_cancel" type="object" class="btn-outline-info"
+                        states="draft,in_consultation" />
             </tree>
         </field>
     </record>
