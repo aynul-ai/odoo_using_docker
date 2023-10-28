@@ -61,3 +61,9 @@ class HospitalPatient(models.Model):
         for rec in self:
             res.append((rec.id, '%s - %s' % (rec.ref, rec.name)))
         return res
+
+    @api.ondelete(at_uninstall=False)
+    def check_appointment(self):
+        for rec in self:
+            if rec.appointment_ids:
+                raise ValidationError (_("You cannot delete a patient with appointment"))
