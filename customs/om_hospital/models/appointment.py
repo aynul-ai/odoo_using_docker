@@ -82,7 +82,8 @@ class HospitalAppointment(models.Model):
         self.state = 'draft'
 
     def action_in_consultation(self):
-        self.state = 'in_consultation'
+        if self.state == 'draft':
+            self.state = 'in_consultation'
 
 
 class AppointmentPharmacyLines(models.Model):

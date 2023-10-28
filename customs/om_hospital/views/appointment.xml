@@ -84,6 +84,10 @@
             <tree string="Hospital Appointment" decoration-success="state == 'done'"
                 decoration-info="state in ('draft', 'in_consultation')"
                 decoration-danger="state == 'cancel'" sample="1" multi_edit="1">
+                <header>
+                     <button string="In Consultation" name="action_in_consultation" type="object"
+                        class="oe_highlight" states="draft"  />
+                </header>
                 <field name="patient_id" />
                 <field name="patient_gender" />
                 <field name="appointment_time" optional="hide" />
