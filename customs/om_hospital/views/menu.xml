@@ -34,8 +34,8 @@
 
 
     <menuitem
-        id="model_name_menu"
-        name="configaration"
+        id="configuration_menu"
+        name="configuration"
         parent="menu_hospital_root"
         sequence="10">
 
@@ -45,7 +45,10 @@
             action="action_patient_tag"
             sequence="2" />
 
-        <menuitem id="odoo_playground_menu" name="Odoo Playground" action="odoo_playground_action" />
+        <menuitem id="odoo_playground_menu" name="Odoo Playground" action="odoo_playground_action" sequence="3"/>
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="hospital_config_settings" name="Settings"-->
+<!--                  action="om_hospital.action_om_hospital_configuration" sequence="4"/>-->
 
     </menuitem>
 
