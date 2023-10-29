@@ -1,6 +1,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
-
+from dateutil.relativedelta import relativedelta
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -9,7 +9,8 @@ class HospitalPatient(models.Model):
     name = fields.Char(string='Name', required=True, tracking=True)
     date_of_birth = fields.Date(string='Date of Birth', tracking=True)
     age = fields.Integer(string='Age', tracking=True, compute='_compute_age',
-                         help="Computed field(non stored) cannot be used in search view")
+                         help="Computed field(non stored) cannot be used in search view",
+                         inverse='_inverse_compute_age')
     gender = fields.Selection([
         ("male", "Male"), ("female", "Female")])
     ref = fields.Char(string='Reference')
@@ -31,7 +32,7 @@ class HospitalPatient(models.Model):
     @api.constrains('date_of_birth')
     def check_date_of_birth(self):
         for rec in self:
-           if rec.date_of_birth > fields.date.today():
+            if rec.date_of_birth and rec.date_of_birth > fields.date.today():
                raise ValidationError("Birthday is not acceptable")
 
     @api.depends('date_of_birth')
@@ -42,6 +43,10 @@ class HospitalPatient(models.Model):
             else:
                 rec.age = 0  # else is mendatory from odoo 14
 
+    @api.onchange('age')
+    def _inverse_compute_age(self):
+        for rec in self:
+            rec.date_of_birth = fields.Date.today() - relativedelta(years=rec.age)
     @api.model
     def create(self, vals):
         vals['ref'] = self.env['ir.sequence'].next_by_code(
