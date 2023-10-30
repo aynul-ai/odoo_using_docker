@@ -76,7 +76,14 @@ class HospitalAppointment(models.Model):
         self.state = 'done'
 
     def action_cancel(self):
-        self.state = 'cancel'
+        cancel_day = self.env['ir.config_parameter'].get_param('om_hospital.cancel_days')
+        days_before_cancel = self.booking_date - fields.date.today()
+        print(type(days_before_cancel.days))
+        print(days_before_cancel.days)
+        if days_before_cancel.days >= int(cancel_day):
+            self.state = 'cancel'
+        else:
+            raise ValidationError(f'Cannot cancel {cancel_day} days before booking')
 
     def action_draft(self):
         self.state = 'draft'
