@@ -70,7 +70,7 @@
             <search string="">
                 <field name="name" filter_domain="[('name','ilike',self), ('ref', 'ilike', self)]" />
                 <!-- <field name="age" string="Patient Age" /> -->
-                <field name="gender" />
+                <field name="gender" widget="radio" />
                 <field name="ref" />
                 <field name="age" />
                 <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]" />
