@@ -8,8 +8,7 @@ class HospitalPatient(models.Model):
 
     name = fields.Char(string='Name', required=True, tracking=True)
     date_of_birth = fields.Date(string='Date of Birth', tracking=True)
-    age = fields.Integer(string='Age', tracking=True, compute='_compute_age',
-                         help="Computed field(non stored) cannot be used in search view",
+    age = fields.Integer(string='Age', tracking=True, compute='_compute_age', search='_search_age',
                          inverse='_inverse_compute_age')
     gender = fields.Selection([
         ("male", "Male"), ("female", "Female")])
@@ -75,3 +74,9 @@ class HospitalPatient(models.Model):
 
     def action_test(self):
         print("hello world")
+
+    def _search_age(self, operator, value):
+        date_of_birth = fields.date.today() - relativedelta(years=value)
+        start_of_year = date_of_birth.replace(day=1, month=1)
+        end_of_year = date_of_birth.replace(day=31, month=12)
+        return [('date_of_birth', '>=', start_of_year), ('date_of_birth', '<=', end_of_year)]
