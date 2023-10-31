@@ -21,6 +21,7 @@
         'views/patient_tag_view.xml',
         'views/odoo_playground_view.xml',
         'views/res_config_settings_view.xml',
+        'views/operation.xml',
         'views/menu.xml',
     ],
     "sequence": -1,

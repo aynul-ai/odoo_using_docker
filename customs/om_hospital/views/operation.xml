@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hospital_operation_form_view" model="ir.ui.view">
+            <field name="name">hospital.operation.form</field>
+            <field name="model">hospital.operation</field>
+            <field name="arch" type="xml">
+                <form string="Hospital Operation">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="doctor_id"/>
+                            <h1>
+                                <field name="doctor_id" placeholder="Title"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="doctor_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hospital_operation_tree_view" model="ir.ui.view">
+            <field name="name">hospital.operation.tree</field>
+            <field name="model">hospital.operation</field>
+            <field name="arch" type="xml">
+                <tree string="Hospital Operation">
+                    <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hospital_operation_search_view" model="ir.ui.view">
+            <field name="name">hospital_operation.search</field>
+            <field name="model">hospital.operation</field>
+            <field name="arch" type="xml">
+                <search string="Hospital Operation">
+                    <group expand="1" string="Group By">
+                        <filter string="Doctor" name="doctor_id" domain="[]"
+                                context="{'group_by':'doctor_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hospital_operation_act_window" model="ir.actions.act_window">
+            <field name="name">Hospital Operation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.operation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Hospital Operation.
+                </p>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

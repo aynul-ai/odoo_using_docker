@@ -32,6 +32,8 @@
 
     </menuitem>
 
+    <menuitem name="Hospital Operation" id="hospital_operation_menu" action="hospital_operation_act_window" parent="menu_hospital_root"/>
+
 
     <menuitem
         id="configuration_menu"
