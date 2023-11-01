@@ -28,4 +28,7 @@ class CancelAppointmentWizard(models.TransientModel):
 
         self.appointment_id.write({'state': 'cancel'})
         print("Appointment Cancelled")
-        return True
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+        }
