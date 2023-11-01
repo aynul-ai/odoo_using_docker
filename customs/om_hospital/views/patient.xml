@@ -57,7 +57,8 @@
             <tree string="Hospital Patient" sample="1" export_xlsx="0">
                 <field name="name" />
                 <field name="gender" />
-                <field name="age" />
+                <field name="age" sum="TOTAL" />
+                <field name="age" avg="AVG" />
                 <field name="ref" />
 
             </tree>
