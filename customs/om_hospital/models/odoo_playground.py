@@ -27,6 +27,9 @@ class OdooPlayground(models.Model):
                 model = self.env[self.model_id.model]
             else:
                 model = self
-            self.result = safe_eval(self.code.strip(), {'self': model})
+            if self.code:
+                self.result = safe_eval(self.code.strip(), {'self': model}, mode='eval')
+            else:
+                self.result = 'No code to execute'
         except Exception as e:
             self.result = str(e)
