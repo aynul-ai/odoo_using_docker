@@ -36,6 +36,9 @@
                             <field name="ref" />
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
                             <field name="tag_ids" widget="many2many_checkboxes" options="{'color_field': 'color'}" />
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="website" widget="url"/>
                         </group>
                         <group>
                             <field name="gender" />
