@@ -8,6 +8,17 @@
             <form string="Patinet Form">
 
                 <sheet>
+                     <div class="alert alert-danger text-center o_form_header"
+                            attrs="{'invisible': [('is_birthday', '!=', True)]}" role="alert">
+                          <a class="close" data-bs-dismiss="alert" href="#">x</a>
+                          <div>
+                            <strong>Today is Birthday</strong>
+                          </div>
+                          <div>Wish
+                            <field name="name" required="0" readonly="1"/>
+                          </div>
+                        </div>
+
                     <field name="image" widget="image" class="oe_avatar" />
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
                         attrs="{'invisible': [('active', '=', True)]}" />
@@ -37,6 +48,7 @@
                             'readonly':[('marital_status', '!=', 'married')],
                             'required': [('marital_status', '=', 'married')]}"/>
                             <field name="appointment_count" attrs="{'invisible': [('appointment_count', '&lt;=', 0)]}"/>
+                            <field name="is_birthday" invisible="1"/>
                         </group>
                     </group>
 
