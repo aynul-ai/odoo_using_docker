@@ -74,7 +74,7 @@ class HospitalPatient(models.Model):
     def check_appointment(self):
         for rec in self:
             if rec.appointment_ids:
-                raise ValidationError (_("You cannot delete a patient with appointment"))
+                raise ValidationError(_("You cannot delete a patient with appointment"))
 
     def action_test(self):
         print("hello world")
@@ -94,3 +94,13 @@ class HospitalPatient(models.Model):
             else:
                 rec.is_birthday = False
 
+    def action_view_appointment(self):
+        return {
+            'name': _('Appointments'),
+            'res_model': 'hospital.appointment',
+            'view_mode': 'list,form',
+            'context': {'default_patient_id': self.id},
+            'target': 'current',
+            'domain': [('patient_id', '=', self.id)],
+            'type': 'ir.actions.act_window',
+        }

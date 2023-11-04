@@ -8,6 +8,15 @@
             <form string="Patinet Form">
 
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                            <button name="action_view_appointment"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-star">
+                                    <field name="appointment_count" widget="statinfo" string='Appointment'/>
+                            </button>
+                    </div>
+
                      <div class="alert alert-danger text-center o_form_header"
                             attrs="{'invisible': [('is_birthday', '!=', True)]}" role="alert">
                           <a class="close" data-bs-dismiss="alert" href="#">x</a>
