@@ -10,6 +10,7 @@ class HospitalOperation(models.Model):
     operation_name = fields.Char(string="Operation Name")
     reference_record = fields.Reference(selection=[('hospital.patient', 'Patient'), ('hospital.appointment', 'Appointment')],
                                         string="Record")
+    sequence = fields.Integer(default=10)
 
     @api.model
     def name_create(self, name):
